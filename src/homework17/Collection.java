@@ -27,11 +27,12 @@ public class Collection implements Iterator{
 
     @Override
     public boolean hasNext() {
+        
         return false;
     }
 
     @Override
-    public void next() {
-
+    public Number[] next() {
+        return numbers;
     }
 }
