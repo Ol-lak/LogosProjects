@@ -90,7 +90,7 @@ public class Collection implements Iterator {
         int length = secondInnerCollection.nums.length;
         if (length % 2 == 1) {
             while (secondInnerCollection.hasNext()) {
-                if (secondInnerCollection.index == length -1 || secondInnerCollection.index % 2 == 0) {
+                if (secondInnerCollection.index == length - 1 || secondInnerCollection.index % 2 == 0) {
                     System.out.println(secondInnerCollection.next());
                 } else {
                     secondInnerCollection.next();
@@ -98,9 +98,9 @@ public class Collection implements Iterator {
             }
         } else {
             while (secondInnerCollection.hasNext()) {
-                if (secondInnerCollection.index == length -1 || secondInnerCollection.index % 2 == 1) {
+                if (secondInnerCollection.index == length - 1 || secondInnerCollection.index % 2 == 1) {
                     System.out.println(secondInnerCollection.next());
-                } else  {
+                } else {
                     secondInnerCollection.next();
                 }
             }
