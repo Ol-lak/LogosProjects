@@ -1,12 +1,11 @@
 package homework19;
 
 import java.io.Serializable;
-import java.util.Comparator;
 
 public class Employee implements Serializable, Comparable<Employee> {
     private String name;
     private int id;
-    transient private double salary;
+    private double salary;
 
     public Employee(String name, int id, double salary) {
         this.name = name;

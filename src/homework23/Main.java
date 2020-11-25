@@ -1,11 +1,11 @@
-package homework15;
+package homework23;
+
 import java.util.*;
-import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-        ZooClub club = new ZooClub();
+
+        ZooClub zooClub = new ZooClub();
         Scanner sc = new Scanner(System.in);
         System.out.println("Type 'help' to get all abilities:");
         while (true) {
@@ -13,12 +13,12 @@ public class Main {
             String str = sc.next();
             switch (str) {
                 case "help":
-                    System.out.println("Type 'addMember' to add new Zoo club member;");
-                    System.out.println("Type 'addPet' to add a new pet to club member ");
-                    System.out.println("Type 'deletePet' to delete a pet from club member ");
-                    System.out.println("Type 'deleteMember' to delete a member from club ");
-                    System.out.println("Type 'deletePetFromAll' to delete a specific type of pet from all club members");
-                    System.out.println("Type 'showMembers' to show all club members");
+                    System.out.println("Type 'addMember' to add new Zoo zooClub member;");
+                    System.out.println("Type 'addPet' to add a new pet to zooClub member ");
+                    System.out.println("Type 'deletePet' to delete a pet from zooClub member ");
+                    System.out.println("Type 'deleteMember' to delete a member from zooClub ");
+                    System.out.println("Type 'deletePetFromAll' to delete a specific type of pet from all zooClub members");
+                    System.out.println("Type 'showMembers' to show all zooClub members");
                     System.out.println("Type 'exit' to exit from program");
                     break;
                 case "addMember":
@@ -38,13 +38,13 @@ public class Main {
                         Pet p = new Pet(type, petName);
                         pets.add(p);
                     }
-                    club.addMember(person, pets);
+                    zooClub.addMember(person, pets);
                     break;
                 case "addPet": {
                     System.out.println("Input your name:");
                     String personName = sc.next();
                     Person temp = null;
-                    for (Person p : club.club.keySet()) {
+                    for (Person p : zooClub.club.keySet()) {
                         if (p.getName().equals(personName)) {
                             temp = p;
                         }
@@ -55,7 +55,7 @@ public class Main {
                         System.out.println("Input pet name:");
                         String petName = sc.next();
                         Pet pet = new Pet(petType, petName);
-                        club.addPet(temp, pet);
+                        zooClub.addPet(temp, pet);
                     } else {
                         System.out.println("Dont find member with this name.");
                         break;
@@ -66,13 +66,13 @@ public class Main {
                     System.out.println("Input your name:");
                     String personName = sc.next();
                     Person temp = null;
-                    for (Person p : club.club.keySet()) {
+                    for (Person p : zooClub.club.keySet()) {
                         if (p.getName().equals(personName)) {
                             temp = p;
                         }
                     }
                     if (temp != null) {
-                        List<Pet> pets1 = club.club.get(temp);
+                        List<Pet> pets1 = zooClub.club.get(temp);
                         System.out.println("Input pet type:");
                         String petType = sc.next();
                         System.out.println("Input pet name:");
@@ -85,12 +85,24 @@ public class Main {
                     }
                     break;
                 case "deletePetFromAll":
-                    System.out.println("Input pet type which you want to delete in all zoo club members:");
+                    System.out.println("Input pet type which you want to delete in all zoo zooClub members:");
                     String inPetType = sc.next();
-                    club.deletePetFromAllMembers(inPetType);
+                    Set<Person> people = zooClub.club.keySet();
+                    Collection<List<Pet>> pets2 = new ArrayList<>();
+                    for (Person person2 : people) {
+                        pets2.add(zooClub.club.get(person2));
+                    }
+                    for (List<Pet> next : pets2) {
+                        next.removeIf(p -> p.getType().equals(inPetType));
+                    }
                     break;
                 case "showMembers":
-                    club.printZooClubMember();
+                    Set<Map.Entry<Person, List<Pet>>> entries = zooClub.club.entrySet();
+                    Iterator<Map.Entry<Person, List<Pet>>> iterator = entries.iterator();
+                    while (iterator.hasNext()) {
+                        Map.Entry<Person, List<Pet>> member = iterator.next();
+                        System.out.println("Person: " + member.getKey() + "\nPets:" + member.getValue());
+                    }
                     break;
                 case "deleteMember":
                     System.out.println("Input your name:");
@@ -98,15 +110,14 @@ public class Main {
                     System.out.println("Input your age:");
                     int personA = sc.nextInt();
                     Person temp1 = null;
-                    for (Person p : club.club.keySet()) {
+                    for (Person p : zooClub.club.keySet()) {
                         if (p.getName().equals(personN) && p.getAge() == personA) {
                             temp1 = p;
                         }
                     }
                     if (temp1 != null) {
-                        club.deleteMember(temp1);
-                    }
-                    else {
+                        zooClub.deleteMember(temp1);
+                    } else {
                         System.out.println("Dont find member with name " + personN + " and age " + personA);
                         break;
                     }

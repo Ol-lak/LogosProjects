@@ -14,10 +14,10 @@ public class Main {
         methods.deserialize();
 
         List<Employee> employees = new ArrayList<>();
-        employees.add(new Employee("Oleg", 9,3521));
-        employees.add(new Employee("Ivan", 15,7652));
-        employees.add(new Employee("Nazar", 2,14568));
-        employees.add(new Employee("Taras", 7,8671));
+        employees.add(new Employee("Oleg", 9, 3521));
+        employees.add(new Employee("Ivan", 15, 7652));
+        employees.add(new Employee("Nazar", 2, 14568));
+        employees.add(new Employee("Taras", 7, 8671));
         System.out.println("----------------Collection deserialize-------------------");
         methods.serializeCollection(employees);
         methods.deserializeCollection();
