@@ -1,6 +1,7 @@
 package homework23;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,12 +44,13 @@ public class Main {
                 case "addPet": {
                     System.out.println("Input your name:");
                     String personName = sc.next();
-                    Person temp = null;
-                    for (Person p : zooClub.club.keySet()) {
-                        if (p.getName().equals(personName)) {
-                            temp = p;
-                        }
-                    }
+                    Optional<Person> first = zooClub.club.keySet().stream().filter(p -> p.getName().equals(personName)).findFirst();
+//                    for (Person p : zooClub.club.keySet()) {
+//                        if (p.getName().equals(personName)) {
+//                            temp = p;
+//                        }
+//                    }
+                    Person temp = first.get();
                     if (temp != null) {
                         System.out.println("Input pet type:");
                         String petType = sc.next();
@@ -89,12 +91,18 @@ public class Main {
                     String inPetType = sc.next();
                     Set<Person> people = zooClub.club.keySet();
                     Collection<List<Pet>> pets2 = new ArrayList<>();
-                    for (Person person2 : people) {
-                        pets2.add(zooClub.club.get(person2));
+                    List<Pet> petList = new ArrayList<>();
+                    zooClub.club.get(people).stream().filter(petList::add);
+
+//                    for (Person person2 : people) {
+//                        pets2.add(zooClub.club.get(person2));
+//                    }
+                    for (Pet pet : petList) {
+                        petList.removeIf(p -> p.getType().equals(inPetType));
                     }
-                    for (List<Pet> next : pets2) {
-                        next.removeIf(p -> p.getType().equals(inPetType));
-                    }
+//                    for (List<Pet> next : pets2) {
+//                        next.removeIf(p -> p.getType().equals(inPetType));
+//                    }
                     break;
                 case "showMembers":
                     Set<Map.Entry<Person, List<Pet>>> entries = zooClub.club.entrySet();
