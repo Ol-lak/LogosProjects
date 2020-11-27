@@ -20,7 +20,7 @@ public class Seance implements Comparable<Seance> {
     @SneakyThrows
     @Override
     public String toString() {
-        return "Movie: " + movie +
+        return movie +
                 ". Start: " + startMovie +
                 ", end: " + endMovie;
     }

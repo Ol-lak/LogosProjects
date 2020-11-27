@@ -69,26 +69,4 @@ public class Cinema {
         }
     }
 
-    public void showSchedulesOnSuchDay(Days day) throws TimeException {
-        System.out.println("Schedule on " + (day) + "\n" + "Movies");
-        Schedule schedule = schedules.get(day);
-        TreeSet<Seance> seances = schedule.getSeances();
-        Iterator<Seance> seanceIterator = seances.iterator();
-        while (seanceIterator.hasNext()) {
-            Seance next = seanceIterator.next();
-            Movie movie = next.getMovie();
-            Time startMovie = next.getStartMovie();
-            Time endMovie = next.getEndMovie();
-            System.out.println(movie.getTitle() +
-                    ". Start: " + startMovie +
-                    ". End: " + endMovie);
-        }
-    }
-
-    public void showMovieLibrary() {
-        Iterator<Movie> iterator = moviesLibrary.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-    }
 }

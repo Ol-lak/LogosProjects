@@ -15,6 +15,6 @@ public class Movie {
 
     @Override
     public String toString() {
-        return "Movie: " + title +". Time duration: " + duration.getHour() + ":" + duration.getMin();
+        return String.format("Movie: %s. Time duration:%2d:%02d", title, duration.getHour(), duration.getMin());
     }
 }

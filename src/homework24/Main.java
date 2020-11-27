@@ -20,7 +20,7 @@ public class Main {
         Time startMovie1 = new Time(17, 20);
         Time startMovie2 = new Time(13, 40);
         Seance seance = new Seance(movie, startMovie);
-        Seance seance1 = new Seance(movie, startMovie1);
+        Seance seance1 = new Seance(movie1, startMovie1);
         seances.add(seance);
         seances.add(seance1);
         Schedule schedule = new Schedule(seances);
@@ -28,7 +28,7 @@ public class Main {
         Time close = new Time(23, 30);
         TreeMap<Days, Schedule> schedules = new TreeMap<>();
         schedules.put(Days.TUESDAY, schedule);
-        Seance seance2 = new Seance(movie, startMovie2);
+        Seance seance2 = new Seance(movie2, startMovie2);
         Schedule schedule1 = new Schedule(seances);
         schedule1.addSeance(seance2);
         schedules.put(Days.SUNDAY, schedule1);

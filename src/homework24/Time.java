@@ -24,8 +24,8 @@ public class Time {
     }
 
     public Time plus(Time b) throws TimeException {
-        hour += b.hour;
-        min += b.min;
+        int hour = this.getHour() + b.hour;
+        int min = this.getHour() + b.min;
         if (min >= 60) {
             hour++;
             min -= 60;
@@ -33,11 +33,11 @@ public class Time {
         if (hour >= 24) {
             hour -= 24;
         }
-        return new Time(hour,min);
+        return new Time(hour, min);
     }
 
     @Override
     public String toString() {
-        return hour + ":" + min;
+        return String.format("%02d:%02d", hour, min);
     }
 }
