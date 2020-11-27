@@ -11,7 +11,7 @@ public class Money {
         System.out.println("Select eagle(Input '1') or tail(Input '2')");
         int yourChoice = scanner.nextInt();
         Consumer<Integer> consumer = (x) -> {
-            int randomMoney = (int) (Math.random() * (2 - 1 + 1) + 1);
+            int randomMoney = (int) (Math.random() * (2) + 1);
             if (randomMoney == x) {
                 System.out.println("Congradulation, you win!");
             } else {
