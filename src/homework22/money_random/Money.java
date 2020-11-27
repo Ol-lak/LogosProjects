@@ -13,7 +13,7 @@ public class Money {
         Consumer<Integer> consumer = (x) -> {
             int randomMoney = (int) (Math.random() * (2) + 1);
             if (randomMoney == x) {
-                System.out.println("Congradulation, you win!");
+                System.out.println("Congratulation, you win!");
             } else {
                 System.out.println("You lost!");
             }

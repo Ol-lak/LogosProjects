@@ -15,7 +15,7 @@ public class Main {
         System.out.println("Convert to localDate");
         System.out.println(localDate);
 
-        LocalTime localTime = getLicalTime(date);
+        LocalTime localTime = getLocalTime(date);
         System.out.println("Convert to localTime");
         System.out.println(localTime);
 
@@ -24,7 +24,7 @@ public class Main {
         System.out.println(localDateTime);
     }
 
-    public static LocalTime getLicalTime(Date date) {
+    public static LocalTime getLocalTime(Date date) {
         return date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
     }
     public static LocalDate getLocalDate(Date date) {

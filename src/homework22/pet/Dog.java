@@ -1,7 +1,5 @@
 package homework22.pet;
 
-import homework22.pet.Pet;
-
 public class Dog extends Pet {
 
     @Override

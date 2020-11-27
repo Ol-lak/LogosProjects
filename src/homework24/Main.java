@@ -1,9 +1,6 @@
 package homework24;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws TimeException {
@@ -38,5 +35,6 @@ public class Main {
         Cinema cinema = new Cinema(schedules, movieLibrary, open, close);
         cinema.addMovie(new Movie("King Artur", new Time(1, 35)), new Time(17, 45), Days.SUNDAY);
         cinema.showSchedules();
+
     }
 }
